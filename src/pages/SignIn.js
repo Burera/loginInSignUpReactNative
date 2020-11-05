@@ -25,10 +25,11 @@ const SignIn = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="dark-content" backgroundColor="#ff1744" />
+            {/* <StatusBar barStyle="dark-content" backgroundColor="#bcbcbc" style={{ color: "black" }} /> */}
             <View style={styles.header}>
                 <Logo></Logo>
-                <Text style={styles.text_header}>SignIn</Text>
+                <Text style={[styles.text_header, { fontFamily: "Montserrat-SemiBold" }]}>SignIn</Text>
                 <Text style={styles.text_header_two}>Hi there! Nice to see you again.</Text>
             </View>
             <View style={styles.footer}>
@@ -75,15 +76,15 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
         paddingBottom: 40,
-        paddingVertical: 60,
-        fontFamily: "VarelaRound-Regular"
+        paddingVertical: 30,
+
 
 
 
     },
     footer: {
         flex: 3,
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingHorizontal: 20,
@@ -91,10 +92,12 @@ const styles = StyleSheet.create({
 
 
     },
+
     text_header: {
         color: "black",
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 30,
+
     },
     text_header_two: {
         color: '#bcbcbc',
