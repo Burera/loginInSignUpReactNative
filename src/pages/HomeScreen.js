@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }) => {
 
                     <View style={styles.box}>
 
-                        <Box key={item.key} iconn={item.icon} title={item.name} />
+                        <Box key={item.key} iconn={item.icon} title={item.name} navigation={() => navigation.navigate('SignUp')} />
                     </View>
                 )}
                 keyExtractor={item => item.key}

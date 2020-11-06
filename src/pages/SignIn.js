@@ -48,6 +48,7 @@ const SignIn = ({ navigation }) => {
                 <PasswordInput pass="Password" />
 
                 <View style={styles.button}>
+
                     <LinearGradient
                         colors={['#ff1744', '#ff1744']}
                         style={styles.signIn}

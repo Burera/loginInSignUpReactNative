@@ -13,6 +13,7 @@ import {
     responsiveWidth,
     responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -23,15 +24,16 @@ const Box = (props) => {
         <View style={styles.container}>
             <View style={styles.box1}>
 
+                <TouchableOpacity onPress={props.navigation}>
+                    <View style={styles.box2} >
+                        <Text style={styles.box3}>
+                            <Icon name={props.iconn} color="#ff1744" size={40} >
 
-                <View style={styles.box2} >
-                    <Text style={styles.box3}>
-                        <Icon name={props.iconn} color="#ff1744" size={40} >
-
-                        </Icon>
-                    </Text>
-                    <Text style={styles.box4}>{props.title}</Text>
-                </View>
+                            </Icon>
+                        </Text>
+                        <Text style={styles.box4}>{props.title}</Text>
+                    </View>
+                </TouchableOpacity>
 
 
 
