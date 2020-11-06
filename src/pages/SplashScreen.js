@@ -24,7 +24,7 @@ const SplashScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* <Box></Box> */}
+
             <FlatList
 
                 numColumns={2}
@@ -33,7 +33,7 @@ const SplashScreen = ({ navigation }) => {
 
                     <View style={styles.box}>
 
-                        <Box key={item.key} iconn={item.icon} title={item.name}></Box>
+                        <Box key={item.key} iconn={item.icon} title={item.name} />
                     </View>
                 )}
                 keyExtractor={item => item.key}
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
-        paddingTop: 170
+        paddingTop: 180
 
     },
     box:

@@ -55,10 +55,10 @@ const SignUp = ({ navigation }) => {
             </View>
             <View style={styles.footer}>
 
-                <EmailInput></EmailInput>
-                <PasswordInput pass="Password"></PasswordInput>
+                <EmailInput />
+                <PasswordInput pass="Password" />
 
-                <PasswordInput pass="Confirm Password"></PasswordInput>
+                <PasswordInput pass="Confirm Password" />
                 <View style={styles.textPrivate}>
                     <Text style={styles.color_textPrivate}>
                         By signing up you agree to our
@@ -73,7 +73,10 @@ const SignUp = ({ navigation }) => {
                         colors={['#ff1744', '#ff1744']}
                         style={styles.signIn}
                     >
-                        <Text style={styles.sign}>SignUp</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                            <Text style={styles.sign} >SignUp</Text>
+
+                        </TouchableOpacity>
 
                     </LinearGradient>
 

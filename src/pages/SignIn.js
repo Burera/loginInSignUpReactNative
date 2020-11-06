@@ -26,17 +26,17 @@ const SignIn = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-            {/* <StatusBar barStyle="dark-content" backgroundColor="#bcbcbc" style={{ color: "black" }} /> */}
+
             <View style={styles.header}>
-                <Logo></Logo>
+                <Logo />
                 <Text style={[styles.text_header, { fontFamily: "Montserrat-SemiBold" }]}>SignIn</Text>
                 <Text style={styles.text_header_two}>Hi there! Nice to see you again.</Text>
             </View>
             <View style={styles.footer}>
 
-                <EmailInput></EmailInput>
+                <EmailInput />
 
-                <PasswordInput pass="Password"></PasswordInput>
+                <PasswordInput pass="Password" />
 
                 <View style={styles.button}>
                     <LinearGradient
@@ -120,23 +120,6 @@ const styles = StyleSheet.create({
         borderBottomColor: '#f2f2f2',
         paddingBottom: 5
     },
-    actionError: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#FF0000',
-        paddingBottom: 5
-    },
-    textInput: {
-        flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
-        paddingLeft: 10,
-        color: '#05375a',
-    },
-    errorMsg: {
-        color: '#FF0000',
-        fontSize: 14,
-    },
     button: {
         alignItems: 'center',
         marginTop: 50
@@ -178,7 +161,8 @@ const styles = StyleSheet.create({
     forget_signUp: {
         paddingHorizontal: 10,
         fontSize: 17,
-        color: "#ff1744"
+        color: "#ff1744",
+
     }
 
 });
