@@ -6,15 +6,13 @@ import {
     TextInput,
     Platform,
     StyleSheet,
-    StatusBar,
-    Alert
+
 } from 'react-native'
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
-import PasswordInput from '../components/PasswordInput';
+
 
 const EmailInput = ({ navigation }) => {
 

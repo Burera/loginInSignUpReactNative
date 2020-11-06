@@ -9,7 +9,7 @@ import {
     StatusBar,
     Alert
 } from 'react-native'
-import SignUp from './SignUp';
+
 import SplashScreen from './SplashScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
@@ -25,7 +25,7 @@ const SignIn = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="dark-content" backgroundColor="#ff1744" />
+            <StatusBar barStyle="dark-content" backgroundColor="#fff" />
             {/* <StatusBar barStyle="dark-content" backgroundColor="#bcbcbc" style={{ color: "black" }} /> */}
             <View style={styles.header}>
                 <Logo></Logo>
@@ -68,25 +68,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingVertical: 150
+
+        paddingTop: 45
 
     },
     header: {
-        flex: 1,
+
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
         paddingBottom: 40,
-        paddingVertical: 30,
+        // paddingVertical: 30,
 
 
 
 
     },
     footer: {
-        flex: 3,
-        // backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        // flex: 1,
+
+
         paddingHorizontal: 20,
 
 
@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
     {
         flexDirection: "row",
         justifyContent: "space-between",
+        paddingTop: 8
 
     },
     forget_password: {

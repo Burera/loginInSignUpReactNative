@@ -26,6 +26,7 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <NavigationContainer>
         <Stack.Navigator headerMode="screen" screenOptions={{
           headerShown: false

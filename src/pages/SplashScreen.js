@@ -1,53 +1,67 @@
 import React, { useState } from 'react'
 import {
     View,
-    Text,
-    TouchableOpacity,
-    TextInput,
-    Platform,
+
     StyleSheet,
-    StatusBar,
-    Alert
+
+    FlatList
 } from 'react-native'
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
-import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
+
 import Box from '../components/Box';
 
 
 const SplashScreen = ({ navigation }) => {
+    const people = [
+        { name: 'Risk Assessment', key: '1', icon: 'deleteuser' },
+        { name: 'Working Enviroment', key: '2', icon: 'sync' },
+        { name: 'Well Being', key: '3', icon: 'barchart' },
+        { name: 'Digital Skills', key: '4', icon: 'CodeSandbox' },
+
+    ]
+
 
 
     return (
         <View style={styles.container}>
-            <Box></Box>
+            {/* <Box></Box> */}
+            <FlatList
+
+                numColumns={2}
+                data={people}
+                renderItem={({ item }) => (
+
+                    <View style={styles.box}>
+
+                        <Box key={item.key} iconn={item.icon} title={item.name}></Box>
+                    </View>
+                )}
+                keyExtractor={item => item.key}
+            />
+
 
         </View>
     )
 }
 const styles = StyleSheet.create({
+
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        flex: 3,
+        backgroundColor: '#F0F0F0',
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
-        // alignSelf: "center"
+        paddingTop: 170
+
     },
-    box: {
-        backgroundColor: "#ff1744",
-
-        width: "40%",
-        height: "15%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginHorizontal: 10,
-        marginLeft: 20
-
+    box:
+    {
+        alignContent: "center",
+        alignSelf: "center",
+        alignItems: "center",
 
     }
+
 
 })
 export default SplashScreen;

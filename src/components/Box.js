@@ -17,36 +17,30 @@ import {
 
 
 
-const Box = () => {
-    const [people, setPeople] = useState([
-        { name: 'Risk Assessment', key: '1', icon: 'deleteuser' },
-        { name: 'Working Enviroment', key: '2', icon: 'sync' },
-        { name: 'Well Being', key: '3', icon: 'barchart' },
-        { name: 'Digital Skills', key: '4', icon: 'CodeSandbox' },
+const Box = (props) => {
+    // const [people, setPeople] = useState([
+    //     { name: 'Risk Assessment', key: '1', icon: 'deleteuser' },
+    //     { name: 'Working Enviroment', key: '2', icon: 'sync' },
+    //     { name: 'Well Being', key: '3', icon: 'barchart' },
+    //     { name: 'Digital Skills', key: '4', icon: 'CodeSandbox' },
 
-    ])
+    // ])
 
 
     return (
         <View style={styles.container}>
             <View style={styles.box1}>
 
-                <FlatList
 
-                    numColumns={2}
-                    data={people}
-                    renderItem={({ item }) => (
-                        <View style={styles.box2} key={item.key}>
-                            <Text style={styles.box3}>
-                                <Icon name={item.icon} color="#ff1744" size={40} >
+                <View style={styles.box2} >
+                    <Text style={styles.box3}>
+                        <Icon name={props.iconn} color="#ff1744" size={40} >
 
-                                </Icon>
-                            </Text>
-                            <Text style={styles.box4}>{item.name}</Text>
-                        </View>
-                    )}
-                    keyExtractor={item => item.key}
-                />
+                        </Icon>
+                    </Text>
+                    <Text style={styles.box4}>{props.title}</Text>
+                </View>
+
 
 
 
@@ -61,7 +55,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
-        // alignSelf: "center"
+
     },
     box1: {
 

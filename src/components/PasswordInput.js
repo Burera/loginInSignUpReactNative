@@ -7,14 +7,12 @@ import {
     TextInput,
     Platform,
     StyleSheet,
-    StatusBar,
-    Alert
+
 } from 'react-native'
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
+
 
 const PasswordInput = (props) => {
 
@@ -98,13 +96,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#f2f2f2',
         paddingBottom: 5
     },
-    actionError: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#FF0000',
-        paddingBottom: 5
-    },
+
     textInput: {
         flex: 1,
         marginTop: Platform.OS === 'ios' ? 0 : -12,
