@@ -19,33 +19,7 @@ import EmailInput from '../components/EmailInput';
 
 const SignUp = ({ navigation }) => {
 
-    const [data, setData] = React.useState({
-        username: '',
-        password: '',
-        confirm_password: '',
-        check_textInputChange: false,
-        secureTextEntry: true,
-        confirm_secureTextEntry: true,
-    });
 
-
-
-
-    const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirm_password: val
-        });
-    }
-
-
-
-    const updateConfirmSecureTextEntry = () => {
-        setData({
-            ...data,
-            confirm_secureTextEntry: !data.confirm_secureTextEntry
-        });
-    }
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" />
@@ -63,9 +37,11 @@ const SignUp = ({ navigation }) => {
                     <Text style={styles.color_textPrivate}>
                         By signing up you agree to our
                 </Text>
-                    <Text style={[styles.color_textPrivate, { fontWeight: 'bold', color: "#ff1744" }]}>{" "}Terms of service</Text>
+                    <Text style={[styles.color_textPrivate, { fontWeight: 'bold', color: "#ff1744" }]}>
+                        {" "}Terms of service</Text>
                     <Text style={styles.color_textPrivate}>{" "}and</Text>
-                    <Text style={[styles.color_textPrivate, { fontWeight: 'bold', color: "#ff1744" }]}>{" "}Privacy policy</Text>
+                    <Text style={[styles.color_textPrivate, { fontWeight: 'bold', color: "#ff1744" }]}>{" "}
+                    Privacy policy</Text>
                 </View>
 
                 <View style={styles.button}>
@@ -133,30 +109,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 20
     },
-    action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom: 5
-    },
-    actionError: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#FF0000',
-        paddingBottom: 5
-    },
-    textInput: {
-        flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
-        paddingLeft: 10,
-        color: '#05375a',
-    },
-    errorMsg: {
-        color: '#FF0000',
-        fontSize: 14,
-    },
     button: {
         alignItems: 'center',
         marginTop: 30
@@ -217,7 +169,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     color_textPrivate: {
-        color: 'grey'
+        color: '#bcbcbc'
     }
 
 });

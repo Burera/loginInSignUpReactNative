@@ -113,13 +113,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 40
     },
-    action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom: 5
-    },
+
     button: {
         alignItems: 'center',
         marginTop: 50

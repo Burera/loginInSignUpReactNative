@@ -6,25 +6,12 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
-    Image,
-    Button,
-    StatusBar,
-    SafeAreaView,
-    SectionList,
-    FlatList
+
 } from 'react-native';
 
 
 
 const Box = (props) => {
-    // const [people, setPeople] = useState([
-    //     { name: 'Risk Assessment', key: '1', icon: 'deleteuser' },
-    //     { name: 'Working Enviroment', key: '2', icon: 'sync' },
-    //     { name: 'Well Being', key: '3', icon: 'barchart' },
-    //     { name: 'Digital Skills', key: '4', icon: 'CodeSandbox' },
-
-    // ])
 
 
     return (
