@@ -11,7 +11,7 @@ import {
 import Box from '../components/Box';
 
 
-const SplashScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
     const people = [
         { name: 'Risk Assessment', key: '1', icon: 'deleteuser' },
         { name: 'Working Enviroment', key: '2', icon: 'sync' },
@@ -46,22 +46,27 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
 
     container: {
-        flex: 3,
+        flex: 1,
+        flexDirection: "row",
         backgroundColor: '#F0F0F0',
         justifyContent: "center",
-        alignContent: "center",
+
         alignItems: "center",
-        paddingTop: 180
+
 
     },
     box:
     {
-        alignContent: "center",
-        alignSelf: "center",
-        alignItems: "center",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        marginVertical: 8
+        // alignContent: "center",
+        // alignSelf: "center",
+        // alignItems: "center",
 
     }
 
 
 })
-export default SplashScreen;
+export default HomeScreen;

@@ -8,6 +8,11 @@ import {
     View,
 
 } from 'react-native';
+import {
+    responsiveHeight,
+    responsiveWidth,
+    responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 
 
@@ -37,7 +42,7 @@ const Box = (props) => {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 3,
+
         backgroundColor: '#F0F0F0',
         justifyContent: "center",
         alignContent: "center",
@@ -47,20 +52,22 @@ const styles = StyleSheet.create({
     box1: {
 
 
-        flexDirection: 'row',
+
         justifyContent: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-around"
+
     },
     box2: {
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: 185,
-        height: 150,
+
+
+        height: responsiveHeight(25), // 50% of window height
+        width: responsiveWidth(45),
         backgroundColor: '#fff',
-        marginHorizontal: 2,
-        marginVertical: 5,
+
+
         borderRadius: 10,
-        marginLeft: 6
+
+        justifyContent: "space-around"
     },
     box3: {
         alignSelf: "center",
@@ -72,7 +79,7 @@ const styles = StyleSheet.create({
     },
     box4: {
         alignSelf: "center",
-        fontSize: 18,
+        fontSize: 15,
         color: "#ff1744",
         paddingBottom: 20,
         fontWeight: "200"

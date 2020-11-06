@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
     View,
     Text,
@@ -7,24 +8,32 @@ import {
     Platform,
     StyleSheet,
     StatusBar,
-    Alert
+    Alert,
+
 } from 'react-native'
 
-import SplashScreen from './SplashScreen';
+import HomeScreen from './HomeScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import PasswordInput from '../components/PasswordInput';
 import EmailInput from '../components/EmailInput';
-import Logo from '../components/Logo'
+import Logo from '../components/Logo';
+import {
+    responsiveHeight,
+    responsiveWidth,
+    responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 
 const SignIn = ({ navigation }) => {
 
 
     return (
-        <View style={styles.container}>
+
+        <KeyboardAwareScrollView style={styles.container}>
+
             <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
             <View style={styles.header}>
@@ -43,7 +52,7 @@ const SignIn = ({ navigation }) => {
                         colors={['#ff1744', '#ff1744']}
                         style={styles.signIn}
                     >
-                        <TouchableOpacity onPress={() => navigation.navigate('SplashScreen')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
                             <Text style={styles.sign} >SignIn</Text>
                         </TouchableOpacity>
 
@@ -59,7 +68,9 @@ const SignIn = ({ navigation }) => {
             </View>
 
 
-        </View>
+
+        </KeyboardAwareScrollView>
+
     )
 }
 
@@ -69,25 +80,28 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
 
-        paddingTop: 45
+        paddingVertical: 10
 
     },
     header: {
-
+        // flex: 1,
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
-        paddingBottom: 40,
-        // paddingVertical: 30,
+
+        paddingVertical: 10,
+        paddingBottom: 20
 
 
 
 
     },
     footer: {
-        // flex: 1,
+        flex: 1,
 
+        // height: responsiveHeight(80), // 50% of window height
 
         paddingHorizontal: 20,
+        paddingVertical: 20
 
 
 
@@ -116,7 +130,7 @@ const styles = StyleSheet.create({
 
     button: {
         alignItems: 'center',
-        marginTop: 50
+        marginVertical: 10
     },
     signIn: {
         width: '100%',
@@ -144,7 +158,7 @@ const styles = StyleSheet.create({
     {
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingTop: 8
+        paddingVertical: 4
 
     },
     forget_password: {

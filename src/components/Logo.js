@@ -3,33 +3,37 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 const Logo = () => {
     return (
-        <View>
-            <View style={styles.cont}>
 
-                <Image
-                    source={require("../images/cloud4.png")}
+        <View style={styles.cont}>
 
-                    style={styles.imageStyling}
-                />
+            <Image
+                source={require("../images/cloud4.png")}
+
+                style={styles.imageStyling}
+            />
 
 
-            </View>
         </View>
+
     );
 };
 
 const styles = StyleSheet.create({
     cont: {
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+        paddingVertical: 30,
+        // flex: 1
 
     },
     imageStyling: {
+
+
         width: 120,
         height: 120,
         borderRadius: 100,
         alignSelf: "center",
-        marginBottom: 30,
+
 
 
         justifyContent: "space-around",

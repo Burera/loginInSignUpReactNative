@@ -20,7 +20,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import SignIn from './src/pages/SignIn';
 import SignUp from './src/pages/SignUp';
-import SplashScreen from './src/pages/SplashScreen';
+import HomeScreen from './src/pages/HomeScreen';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
         }}>
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       {/* <Text>hello</Text> */}

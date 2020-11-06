@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {
     View,
     Text,
     TouchableOpacity,
-    TextInput,
-    Platform,
+
     StyleSheet,
     StatusBar,
-    Alert
+    ScrollView
 } from 'react-native'
 import SignIn from './SignIn';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -16,12 +16,17 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import PasswordInput from '../components/PasswordInput';
 import EmailInput from '../components/EmailInput';
+import {
+    responsiveHeight,
+    responsiveWidth,
+    responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const SignUp = ({ navigation }) => {
 
 
     return (
-        <View style={styles.container}>
+        <KeyboardAwareScrollView style={styles.container}>
             <StatusBar barStyle="light-content" />
             <View style={styles.header}>
                 <Text style={styles.text_header}>SignUp</Text>
@@ -65,7 +70,7 @@ const SignUp = ({ navigation }) => {
             </View>
 
 
-        </View>
+        </KeyboardAwareScrollView>
     )
 }
 
@@ -76,24 +81,27 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     header: {
-        flex: 1,
+        // flex: 1,
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
-        paddingBottom: 20
+        paddingVertical: 10,
+
+        marginTop: responsiveHeight(10),
+
 
     },
     footer: {
-        flex: 3,
+        flex: 1,
         backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        height: responsiveHeight(70),
         paddingHorizontal: 20,
-        paddingVertical: 30
+        paddingVertical: 20
     },
     text_header: {
         color: "black",
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 30,
+
     },
     text_header_two: {
         color: '#bcbcbc',
@@ -139,7 +147,7 @@ const styles = StyleSheet.create({
     {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: 15
+        marginTop: 10
 
     },
     forget_password: {
