@@ -21,6 +21,10 @@ import 'react-native-gesture-handler';
 import SignIn from './src/pages/SignIn';
 import SignUp from './src/pages/SignUp';
 import HomeScreen from './src/pages/HomeScreen';
+import ScreenA from './src/pages/ScreenA';
+import ScreenB from './src/pages/ScreenB'
+import ScreenC from './src/pages/ScreenC'
+import ScreenD from './src/pages/ScreenD'
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -35,6 +39,11 @@ const App = () => {
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="ScreenA" component={ScreenA} />
+          <Stack.Screen name="ScreenB" component={ScreenB} />
+          {/* <Stack.Screen name="ScreenC" component={ScreenC} />
+          <Stack.Screen name="ScreenD" component={ScreenD} /> */}
+
         </Stack.Navigator>
       </NavigationContainer>
       {/* <Text>hello</Text> */}
