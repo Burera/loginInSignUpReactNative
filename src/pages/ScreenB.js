@@ -19,11 +19,11 @@ const ScreenB = ({ navigation }) => {
         <View style={styles.container}>
             <QuestionList></QuestionList>
 
-            <View style={styles.bottomBtn}>
+            {/* <View style={styles.bottomBtn}>
 
                 <Bottom></Bottom>
 
-            </View>
+            </View> */}
         </View>
     )
 }

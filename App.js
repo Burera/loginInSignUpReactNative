@@ -23,8 +23,8 @@ import SignUp from './src/pages/SignUp';
 import HomeScreen from './src/pages/HomeScreen';
 import ScreenA from './src/pages/ScreenA';
 import ScreenB from './src/pages/ScreenB'
-import ScreenC from './src/pages/ScreenC'
-import ScreenD from './src/pages/ScreenD'
+import WellBeing from './src/pages/WellBeing'
+import DigitalSkills from './src/pages/DigitalSkills'
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -33,6 +33,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <NavigationContainer>
         <Stack.Navigator headerMode="screen" screenOptions={{
+          cardStyle: { backgroundColor: 'white' },
           headerShown: false
 
         }}>
@@ -41,8 +42,8 @@ const App = () => {
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="ScreenA" component={ScreenA} />
           <Stack.Screen name="ScreenB" component={ScreenB} />
-          {/* <Stack.Screen name="ScreenC" component={ScreenC} />
-          <Stack.Screen name="ScreenD" component={ScreenD} /> */}
+          <Stack.Screen name="WellBeing" component={WellBeing} />
+          <Stack.Screen name="DigitalSkills" component={DigitalSkills} />
 
         </Stack.Navigator>
       </NavigationContainer>

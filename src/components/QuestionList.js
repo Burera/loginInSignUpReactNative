@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 const QuestionList = () => {
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [selected, setSelected] = useState(null)
     const QuestionData = [
         {
             id: 1,
@@ -84,9 +85,14 @@ const QuestionList = () => {
 
                         {QuestionData[currentQuestion].answerOptions.map((option) => (
                             <View style={styles.item} key={option.id}>
-                                <TouchableOpacity onPress={handleAnswerOptionClick}
+                                <TouchableOpacity
 
+                                    style={
+                                        {
 
+                                            color: selected == option.answerText ? "#fc5185" : "gray",
+                                            fontWeight: selected == option.answerText ? "bold" : "normal"
+                                        }}
 
                                 >
 
@@ -97,9 +103,9 @@ const QuestionList = () => {
 
                             </View>
                         ))}
-                        {/* <TouchableOpacity style={styles.submit}>
+                        <TouchableOpacity style={styles.submit} onPress={handleAnswerOptionClick}>
                             <Text style={{ color: "white" }}>SUBMIT</Text>
-                        </TouchableOpacity> */}
+                        </TouchableOpacity>
                     </>
 
                 )}
