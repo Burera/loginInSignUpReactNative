@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Text,
     View,
@@ -10,10 +10,12 @@ import {
 } from 'react-native';
 import Bottom from '../components/Bottom';
 import ScreenB from './ScreenB'
+import { CheckBox } from 'react-native-elements'
 
 
 const ScreenA = (props) => {
     const { navigation } = props;
+    const [checked, setChecked] = useState()
     return (
         <View style={styles.container}>
             <View>
@@ -41,11 +43,25 @@ const ScreenA = (props) => {
                     hazards and risk. Determine if existing control measures are
                     adequate or if more should be done.
                    </Text>
+
             </ScrollView>
-            <View
-                style={styles.bottmbtn}>
-                <Bottom onLeftPress={() => navigation.goBack()} onRightPress={() => navigation.navigate('ScreenB')} />
-            </View>
+
+            <CheckBox
+
+
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={checked}
+                onPress={() => setChecked({ checked: !checked })}
+            />
+
+
+
+
+            <Bottom onLeftPress={() => navigation.goBack()}
+                onRightPress={() => navigation.navigate('ScreenB')} />
+
+
         </View>
     );
 };
@@ -54,12 +70,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
-        marginVertical: 0,
-        paddingVertical: 0
+        // marginVertical: 0,
+        // paddingVertical: 0
 
 
     },
     scrollView: {
+
         marginTop: 20,
         marginHorizontal: 20,
 
@@ -84,11 +101,6 @@ const styles = StyleSheet.create({
         color: '#bcbcbc',
         fontWeight: '100',
         marginHorizontal: 20
-    },
-    bottmbtn: {
-
-
-
     }
 });
 export default ScreenA;

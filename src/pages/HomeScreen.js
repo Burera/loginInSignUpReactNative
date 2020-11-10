@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ScreenA from './ScreenA'
+import RiskAssessement from './RiskAssessement'
 import ScreenB from './ScreenB'
 import WellBeing from './WellBeing'
 import DigitalSkills from './DigitalSkills'
@@ -17,7 +17,7 @@ import Box from '../components/Box';
 
 const HomeScreen = ({ navigation }) => {
     const people = [
-        { name: 'Risk Assessment', key: '1', icon: 'deleteuser', address: 'ScreenA' },
+        { name: 'Risk Assessment', key: '1', icon: 'deleteuser', address: 'RiskAssessement' },
         { name: 'Working Enviroment', key: '2', icon: 'sync', address: 'ScreenB' },
         { name: 'Well Being', key: '3', icon: 'barchart', address: 'WellBeing' },
         { name: 'Digital Skills', key: '4', icon: 'CodeSandbox', address: 'DigitalSkills' },

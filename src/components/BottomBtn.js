@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
         borderRadius: 40,
 
         paddingTop: 10,
-        marginTop: 50,
         fontWeight: "300"
 
     },

@@ -20,9 +20,7 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     cont: {
-        flexDirection: "row",
-        justifyContent: "center",
-        paddingVertical: 30,
+
         // flex: 1
 
     },
@@ -36,7 +34,6 @@ const styles = StyleSheet.create({
 
 
 
-        justifyContent: "space-around",
     },
 
 

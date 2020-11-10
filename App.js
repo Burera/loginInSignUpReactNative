@@ -21,7 +21,7 @@ import 'react-native-gesture-handler';
 import SignIn from './src/pages/SignIn';
 import SignUp from './src/pages/SignUp';
 import HomeScreen from './src/pages/HomeScreen';
-import ScreenA from './src/pages/ScreenA';
+import RiskAssessement from './src/pages/RiskAssessement';
 import ScreenB from './src/pages/ScreenB'
 import WellBeing from './src/pages/WellBeing'
 import DigitalSkills from './src/pages/DigitalSkills'
@@ -40,7 +40,7 @@ const App = () => {
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen name="ScreenA" component={ScreenA} />
+          <Stack.Screen name="RiskAssessement" component={RiskAssessement} />
           <Stack.Screen name="ScreenB" component={ScreenB} />
           <Stack.Screen name="WellBeing" component={WellBeing} />
           <Stack.Screen name="DigitalSkills" component={DigitalSkills} />

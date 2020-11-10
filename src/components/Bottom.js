@@ -23,6 +23,7 @@ const Bottom = (props) => {
         <View style={{
             flexDirection: "row",
             justifyContent: "space-around",
+            alignItems: 'center'
         }}>
 
             <BottomBtn title="Back" onPress={onLeftPress}
