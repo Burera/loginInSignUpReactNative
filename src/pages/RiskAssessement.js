@@ -10,13 +10,18 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Bottom from '../components/Bottom';
-import ScreenB from './ScreenB'
+import WorkingEnviroment from './WorkingEnviroment'
 import { CheckBox } from 'react-native-elements'
 
 
 const ScreenA = (props) => {
     const { navigation } = props;
-    const [checked, setChecked] = useState(false)
+    const [yes, setYes] = useState(false);
+
+    const YesPresses = () => {
+        const changee = !yes;
+        setYes(changee);
+    };
     return (
         <View style={styles.container}>
             <View>
@@ -46,26 +51,41 @@ const ScreenA = (props) => {
                    </Text>
 
             </ScrollView>
-            <TouchableOpacity>
 
+            <View
+                style={{
+                    flexDirection: 'row',
+
+
+                }}>
                 <CheckBox
-
-                    title="confirmation"
-
-                    checkedIcon='dot-circle-o'
-                    uncheckedIcon='circle-o'
-                    checkedColor='red'
-                    size={25}
-                    checked={checked}
-                    onPress={() => setChecked({ checked: true })}
+                    onPress={YesPresses}
+                    checkedIcon="dot-circle-o"
+                    uncheckedIcon="circle-o"
+                    checked={yes}
+                    checkedColor="#ff1744"
+                    uncheckedColor="#bcbcbc"
                 />
-            </TouchableOpacity>
+                <Text
+                    style={{
+
+                        flex: 1,
+                        alignSelf: 'center',
+                        position: 'absolute',
+                        left: 45,
+                        color: 'grey'
+
+
+                    }}>
+                    I agree terms and Condition
+        </Text>
+            </View>
 
 
 
 
             <Bottom onLeftPress={() => navigation.goBack()}
-                onRightPress={() => navigation.navigate('ScreenB')} />
+                onRightPress={() => navigation.navigate('WorkingEnviroment')} />
 
 
         </View>

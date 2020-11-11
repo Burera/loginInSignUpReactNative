@@ -9,7 +9,7 @@ import {
     ScrollView,
 } from 'react-native';
 import Bottom from '../components/Bottom';
-import ScreenB from './ScreenB'
+import WorkingEnviroment from './WorkingEnviroment'
 
 
 const DigitalSkills = (props) => {
@@ -30,7 +30,8 @@ const DigitalSkills = (props) => {
 
             <View
                 style={styles.bottmbtn}>
-                <Bottom onLeftPress={() => navigation.goBack()} onRightPress={() => navigation.navigate('ScreenB')} />
+                <Bottom onLeftPress={() => navigation.goBack()}
+                    onRightPress={() => navigation.navigate('WorkingEnviroment')} />
             </View>
         </View>
     );

@@ -9,12 +9,14 @@ import {
     SafeAreaView,
     ScrollView,
 } from 'react-native';
-import Bottom from '../components/Bottom';
+import DigitalSkills from './DigitalSkills'
 
 import Video from 'react-native-video';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const WellBeing = ({ navigation, route }) => {
+import BottomBtn from '../components/BottomBtn';
+
+const WellBeing = (props) => {
+    const { navigation } = props
     return (
         <View style={styles.container}>
             <View>
@@ -31,7 +33,8 @@ const WellBeing = ({ navigation, route }) => {
                     width: '90%',
                 }}>
                 <Video
-                    source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }} // Can be a URL or a local file.
+                    source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
+                    // Can be a URL or a local file.
                     // Callback when video cannot be loaded
                     style={styles.backgroundVideo}
                     resizeMode="cover"
@@ -42,10 +45,11 @@ const WellBeing = ({ navigation, route }) => {
             </View>
 
             <View style={styles.bottmbtn}>
-                <Bottom
-                    onLeftPress={() => navigation.goBack()}
-                    onRightPress={() => navigation.navigate('ScreenB')}
-                />
+                <BottomBtn title="Back" onPress={() => navigation.goBack()} />
+                <BottomBtn title="Confirm" />
+                <BottomBtn title="Next" onPress={() => navigation.navigate('DigitalSkills')} />
+
+
             </View>
         </View>
     );
@@ -86,7 +90,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
     },
     bottmbtn: {
-        justifyContent: 'flex-end',
+        flexDirection: 'row',
+
+        justifyContent: 'space-around'
     },
 });
 export default WellBeing;
