@@ -7,6 +7,7 @@ import {
     StyleSheet,
     SafeAreaView,
     ScrollView,
+    TouchableOpacity
 } from 'react-native';
 import Bottom from '../components/Bottom';
 import ScreenB from './ScreenB'
@@ -15,7 +16,7 @@ import { CheckBox } from 'react-native-elements'
 
 const ScreenA = (props) => {
     const { navigation } = props;
-    const [checked, setChecked] = useState()
+    const [checked, setChecked] = useState(false)
     return (
         <View style={styles.container}>
             <View>
@@ -45,15 +46,20 @@ const ScreenA = (props) => {
                    </Text>
 
             </ScrollView>
+            <TouchableOpacity>
 
-            <CheckBox
+                <CheckBox
 
+                    title="confirmation"
 
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={checked}
-                onPress={() => setChecked({ checked: !checked })}
-            />
+                    checkedIcon='dot-circle-o'
+                    uncheckedIcon='circle-o'
+                    checkedColor='red'
+                    size={25}
+                    checked={checked}
+                    onPress={() => setChecked({ checked: true })}
+                />
+            </TouchableOpacity>
 
 
 

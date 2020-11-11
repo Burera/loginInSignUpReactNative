@@ -22,7 +22,10 @@ const DigitalSkills = (props) => {
                     the overall process of hazard identification
                 </Text>
             </View>
-
+            <View><Text style={{
+                justifyContent: 'center', alignSelf:
+                    'center', alignContent: 'center'
+            }}>All Data Display here</Text></View>
 
 
             <View
@@ -36,11 +39,41 @@ const DigitalSkills = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "column",
+        flexDirection: 'column',
         marginVertical: 0,
-        paddingVertical: 0
+        paddingVertical: 0,
+    },
+    backgroundVideo: {
+        flex: 1,
+        marginTop: 30,
+        borderRadius: 20,
+    },
+    scrollView: {
+        marginTop: 20,
+        marginHorizontal: 20,
+    },
+    text: {
+        fontSize: 18,
+        color: 'grey',
+        lineHeight: 30,
+    },
+    header: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#364f6b',
+        marginTop: 30,
+        justifyContent: 'center',
+        marginHorizontal: 20,
+    },
+    shortText: {
+        color: '#bcbcbc',
+        fontWeight: '100',
+        marginHorizontal: 20,
+    },
+    bottmbtn: {
+        justifyContent: 'flex-end',
+        flex: 1
+    },
 
-
-    }
 });
 export default DigitalSkills;

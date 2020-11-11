@@ -8,22 +8,20 @@ import {
     StyleSheet
 } from 'react-native';
 import Bottom from '../components/Bottom';
+// import Question from '../components/Question';
 import QuestionList from '../components/QuestionList';
+import Quiz from '../components/Quiz';
 
-
-
-
-
-const ScreenB = ({ navigation }) => {
+const ScreenB = (props) => {
+    const { navigation } = props;
     return (
         <View style={styles.container}>
-            <QuestionList></QuestionList>
+            <Quiz></Quiz>
+            <View style={styles.bottomBtn}>
 
-            {/* <View style={styles.bottomBtn}>
+                <Bottom onLeftPress={() => navigation.goBack()}></Bottom>
 
-                <Bottom></Bottom>
-
-            </View> */}
+            </View>
         </View>
     )
 }

@@ -1,154 +1,173 @@
-// import React, { useState } from 'react';
-// import { CheckBox } from "native-base";
-// import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { QuizData } from './QuestionData'
+import {
+    Text,
+    View,
+    Image,
+    Button,
+    StyleSheet,
 
-// const Question = () => {
-//     const [question, setQuestion] = useState(0)
-
-//     return (
-
-//         <View style={styles.container}>
-//             <Text style={styles.header}>What's your favorite programming language?</Text>
-
-//             <View style={styles.item} >
-//                 <CheckBox checked={question === 1} color="#fc5185" onPress={() => setQuestion(1)} />
-//                 <Text style={
-//                     {
-//                         ...styles.checkBoxTxt,
-//                         color: question === 1 ? "#fc5185" : "gray",
-//                         fontWeight: question === 1 ? "bold" : "normal"
-//                     }}
-//                 >Python</Text>
-//             </View>
-//             <TouchableOpacity style={styles.submit}>
-//                 <Text style={{ color: "white" }}>SUBMIT</Text>
-//             </TouchableOpacity>
-//         </View>
-//     )
-// }
+} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#F0F0F0',
-//         alignItems: 'center',
-//         justifyContent: 'center',
+export class Question extends Component {
 
-//     },
+    state = {
+        userAnswer: null,    //current users answer
+        currentIndex: 0,  //current questions index
+        options: [],       //the four options
+        quizEnd: false, //True if it's the last question
+        score: 0,      //the Score
+        disabled: true,
+    }
+    //Component that holds the current quiz
+    loadQuiz = () => {
+        const { currentIndex } = this.state //get the current index
+        this.setState(() => {
+            return {
+                question: QuizData[currentIndex].question,
+                options: QuizData[currentIndex].options,
+                answer: QuizData[currentIndex].answer
+            }
+        }
+        )
+    }
+    nextQuestionHander = () => {
+        const { userAnswer, answer, score } = this.state
+        this.setState({
+            currentIndex: this.state.currentIndex + 1
+        })
 
-//     header: {
-//         fontSize: 25,
-//         fontWeight: "bold",
-//         color: "#364f6b",
-//         marginBottom: 40,
-//         paddingHorizontal: 20,
-//         justifyContent: 'center',
-//     },
-//     item: {
-//         width: "80%",
-//         backgroundColor: "#fff",
-//         borderRadius: 20,
-//         padding: 10,
-//         marginBottom: 10,
-//         flexDirection: "row",
-//     },
-//     checkBoxTxt: {
-//         marginLeft: 20,
+        //Check for correct answer and increment score
+        if (userAnswer === answer) {
+            this.setState({
+                score: score + 1
+            })
+        }
+    }
+    //Load the quiz once the component mounts
+    componentDidMount() {
+        this.loadQuiz();
+    }
+    componentDidUpdate(prevProps, prevState) {
+        const { currentIndex } = this.state;
+        if (this.state.currentIndex !== prevState.currentIndex) {
+            this.setState(() => {
+                return {
+                    disabled: true,
+                    question: QuizData[currentIndex].question,
+                    options: QuizData[currentIndex].options,
+                    answer: QuizData[currentIndex].answer
+                }
+            });
 
-//     },
-//     submit: {
-//         width: "80%",
-//         backgroundColor: "#fc5185",
-//         borderRadius: 20,
-//         padding: 10,
-//         alignItems: "center",
-//         marginTop: 40
-//     }
-
-// })
-// export default Question
-
-import React, { useState } from 'react-native';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-export default function Question() {
-    const questions = [
-        {
-            questionText: 'What is the capital of France?',
-            answerOptions: [
-                { answerText: 'New York', isCorrect: false },
-                { answerText: 'London', isCorrect: false },
-                { answerText: 'Paris', isCorrect: true },
-                { answerText: 'Dublin', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'Who is CEO of Tesla?',
-            answerOptions: [
-                { answerText: 'Jeff Bezos', isCorrect: false },
-                { answerText: 'Elon Musk', isCorrect: true },
-                { answerText: 'Bill Gates', isCorrect: false },
-                { answerText: 'Tony Stark', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'The iPhone was created by which company?',
-            answerOptions: [
-                { answerText: 'Apple', isCorrect: true },
-                { answerText: 'Intel', isCorrect: false },
-                { answerText: 'Amazon', isCorrect: false },
-                { answerText: 'Microsoft', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: '1', isCorrect: false },
-                { answerText: '4', isCorrect: false },
-                { answerText: '6', isCorrect: false },
-                { answerText: '7', isCorrect: true },
-            ],
-        },
-    ];
-
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [showScore, setShowScore] = useState(false);
-    const [score, setScore] = useState(0);
-
-    const handleAnswerOptionClick = (isCorrect) => {
-        if (isCorrect) {
-            setScore(score + 1);
+        }
+    }
+    checkAnswer = answer => {
+        this.setState({
+            userAnswer: answer,
+            disabled: false
+        })
+    }
+    finishHandler = () => {
+        if (this.state.currentIndex === QuizData.length - 1) {
+            this.setState({
+                quizEnd: true
+            })
         }
 
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion);
-        } else {
-            setShowScore(true);
-        }
-    };
-    return (
-        <Text className='app'>
-            {showScore ? (
-                <Text className='score-section'>
-                    You scored {score} out of {questions.length}
-                </Text>
-            ) : (
-                    <>
-                        <Text className='question-section'>
-                            <Text className='question-count'>
-                                <span>Question {currentQuestion + 1}</span>/{questions.length}
+    }
+    render() {
+        const { question, options, currentIndex, userAnswer, quizEnd } = this.state;
+        if (quizEnd) {
+            return (
+                <View>
+
+                    <Text>your input data are</Text>
+                    <Text>
+                        {QuizData.map((item, index) => (
+                            <Text style={styles.options}
+                                key={index}>
+                                {item.answer}
                             </Text>
-                            <Text className='question-text'>{questions[currentQuestion].questionText}</Text>
-                        </Text>
-                        <Text className='answer-section'>
-                            {questions[currentQuestion].answerOptions.map((answerOption) => (
-                                <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-                            ))}
-                        </Text>
-                    </>
-                )}
-        </Text>
-    );
-}
+                        ))}
+                    </Text>
+                </View>
+            )
+        }
 
+        return (
+            <View>
+                <Text>{question}</Text>
+
+                {options.map(option => (  //for each option, new paragraph
+                    <TouchableOpacity key={option.id}
+                        style={`options ${userAnswer === option ? selected : null}`}
+                        onClick={() => this.checkAnswer(option)}>
+
+                        <Text>
+                            {option}
+                        </Text>
+                    </TouchableOpacity>
+                ))}
+                {currentIndex < QuizData.length - 1 &&
+                    // Next button only displays if the above is true
+                    <TouchableOpacity
+
+                        disabled={this.state.disabled}
+                        onClick={this.nextQuestionHander}
+                    ><Text>Next Question</Text></TouchableOpacity>
+                }
+                {currentIndex === QuizData.length - 1 &&
+                    <TouchableOpacity
+
+
+                        disabled={this.state.disabled}
+                        onClick={this.finishHandler}
+                    > <Text>Finish</Text></TouchableOpacity>
+                }
+            </View>
+        )
+
+    }
+}
+const styles = StyleSheet.create({
+    App: {
+        textAlign: 'center',
+        fontFamily: 'Arial'
+    },
+
+    selected: {
+        backgroundColor: 'yellow'
+    },
+
+    options: {
+        padding: 8,
+
+
+        width: '100%',
+        backgroundColor: 'white',
+        color: 'steelblue',
+        fontWeight: 'bold'
+    },
+
+    ul: {
+
+    },
+
+    texto: {
+        margin: 5,
+    },
+
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        color: 'white',
+        fontFamily: 'Segoe UI',
+        fontSize: 18,
+        backgroundColor: 'teal'
+    }
+
+})
+export default Question;

@@ -37,7 +37,10 @@ const SignIn = ({ navigation }) => {
             <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
             <View style={styles.header}>
-                <Logo />
+                <View style={styles.imgoo}>
+
+                    <Logo />
+                </View>
                 <Text style={[styles.text_header, { fontFamily: "Montserrat-SemiBold" }]}>SignIn</Text>
                 <Text style={styles.text_header_two}>Hi there! Nice to see you again.</Text>
             </View>
@@ -84,8 +87,13 @@ const styles = StyleSheet.create({
         paddingVertical: 10
 
     },
+    imgoo: {
+
+
+        paddingVertical: 25
+    },
     header: {
-        // flex: 1,
+        flex: 1,
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
 
