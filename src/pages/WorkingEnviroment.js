@@ -28,7 +28,9 @@ const ScreenB = (props) => {
             </ScrollView>
             <View style={styles.bottomBtn}>
 
-                <Bottom onLeftPress={() => navigation.goBack()} onRightPress={() => navigation.navigate('WellBeing')}></Bottom>
+                <Bottom onLeftPress={() => navigation.goBack()}
+                    onRightPress={() => navigation.navigate('WellBeing'
+                    )}></Bottom>
 
             </View>
         </View>

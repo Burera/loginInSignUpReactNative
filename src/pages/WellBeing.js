@@ -9,14 +9,15 @@ import {
     SafeAreaView,
     ScrollView,
 } from 'react-native';
-import DigitalSkills from './DigitalSkills'
+import DigitalSkills from './DigitalSkills';
 
 import Video from 'react-native-video';
 
 import BottomBtn from '../components/BottomBtn';
+import ScroolText from '../components/ScroolText';
 
 const WellBeing = (props) => {
-    const { navigation } = props
+    const { navigation } = props;
     return (
         <View style={styles.container}>
             <View>
@@ -27,11 +28,7 @@ const WellBeing = (props) => {
             </View>
 
             <View
-                style={{
-                    flex: 1,
-                    alignSelf: 'center',
-                    width: '90%',
-                }}>
+                style={styles.imgStyl}>
                 <Video
                     source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
                     // Can be a URL or a local file.
@@ -40,16 +37,17 @@ const WellBeing = (props) => {
                     resizeMode="cover"
                     // resizeMode="contain"
                     controls={true}
-                    progressUpdateInterval={15}
+                // progressUpdateInterval={15}
                 />
             </View>
-
+            <ScroolText />
             <View style={styles.bottmbtn}>
                 <BottomBtn title="Back" onPress={() => navigation.goBack()} />
                 <BottomBtn title="Confirm" />
-                <BottomBtn title="Next" onPress={() => navigation.navigate('DigitalSkills')} />
-
-
+                <BottomBtn
+                    title="Next"
+                    onPress={() => navigation.navigate('DigitalSkills')}
+                />
             </View>
         </View>
     );
@@ -92,7 +90,13 @@ const styles = StyleSheet.create({
     bottmbtn: {
         flexDirection: 'row',
 
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
+    imgStyl: {
+        flex: 1,
+        alignSelf: 'center',
+        width: '90%',
+        marginVertical: 10
+    }
 });
 export default WellBeing;

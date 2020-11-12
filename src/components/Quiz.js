@@ -14,7 +14,7 @@ import CheckBoxbtn from './CheckBoxbtn';
 
 
 const Quiz = () => {
-    const [checked, setChecked] = useState(false)
+
     const list = [
         {
             id: 1,
