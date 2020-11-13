@@ -18,17 +18,20 @@ import ScroolText from '../components/ScroolText';
 import Logo from '../components/Logo'
 import Roundbtn from '../components/Roundbtn'
 import Bottom from '../components/Bottom';
+import VideoCOmp from '../components/VideoCOmp'
+import AppText from '../components/AppText';
 
 const WellBeing = (props) => {
     const { navigation } = props;
     return (
         <View style={styles.container}>
-            <View>
+            {/* <View>
                 <Text style={styles.header}>Well Being – </Text>
                 <Text style={styles.shortText}>
                     the overall process of hazard identification
         </Text>
-            </View>
+            </View> */}
+            <AppText />
             {/* make a reusable component */}
             <View
                 style={styles.imgStyl}>
@@ -36,43 +39,27 @@ const WellBeing = (props) => {
                     source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
                     // Can be a URL or a local file.
                     // Callback when video cannot be loaded
-
+                    playInBackground={false}
+                    playWhenInactive={false}
                     style={styles.backgroundVideo}
                     resizeMode="cover"
                     // resizeMode="contain"
                     controls={true}
                     progressUpdateInterval={15}
+                    onLoadStart={() => {
+                        console.log('onLoadStart', new Date());
+                    }}
+                    onLoad={() => {
+                        console.log('onLoad', new Date());
+                    }}
                 />
+
             </View>
             {/* do not make component for it */}
             <ScroolText />
-            <ScrollAbleContainer>
-                <AppText>
-                    Determine if existing control measures are adequate or if more should
-                    be done. Create awareness of hazards and risk. Determine if existing
-                    control measures are adequate or if more should be done. Create
-                    awareness of hazards and risk. Determine if existing control measures
-                    are adequate or if more should be done. Create awareness of hazards
-                    and risk. Determine if existing control measures are adequate or if
-                    more should be done. Determine if existing control measures are
-                    adequate or if more should be done. Create awareness of hazards and
-                    risk. Determine if existing control measures are adequate or if more
-                    should be done. Create awareness of hazards and risk. Determine if
-                    existing control measures are adequate or if more should be done.
-                    Create awareness of hazards and risk. Determine if existing control
-                    measures are adequate or if more should be done.
-                </AppText>
-            </ScrollAbleContainer>
+
             <View style={styles.bottmbtn}>
-                {/* <BottomBtn title="Back" onPress={() => navigation.goBack()} />
 
-
-                <Roundbtn title="Confirm"></Roundbtn>
-
-                <BottomBtn
-                    title="Next"
-                    onPress={() => navigation.navigate('DigitalSkills')}
-                /> */}
                 <Bottom onLeftPress={() => navigation.goBack()}
                     onRightPress={() => navigation.navigate('DigitalSkills'
                     )} />
@@ -101,19 +88,19 @@ const styles = StyleSheet.create({
         color: 'grey',
         lineHeight: 30,
     },
-    header: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#364f6b',
-        marginTop: 30,
-        justifyContent: 'center',
-        marginHorizontal: 20,
-    },
-    shortText: {
-        color: '#bcbcbc',
-        fontWeight: '100',
-        marginHorizontal: 20,
-    },
+    // header: {
+    //     fontSize: 28,
+    //     fontWeight: 'bold',
+    //     color: '#364f6b',
+    //     marginTop: 30,
+    //     justifyContent: 'center',
+    //     marginHorizontal: 20,
+    // },
+    // shortText: {
+    //     color: '#bcbcbc',
+    //     fontWeight: '100',
+    //     marginHorizontal: 20,
+    // },
     bottmbtn: {
         paddingTop: 5
     },
