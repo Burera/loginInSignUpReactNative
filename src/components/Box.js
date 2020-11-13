@@ -27,9 +27,9 @@ const Box = (props) => {
                 <TouchableOpacity onPress={props.navigation}>
                     <View style={styles.box2} >
                         <Text style={styles.box3}>
-                            <Icon name={props.iconn} color="#ff1744" size={40} >
+                            <Icon name={props.iconn} color="#ff1744" size={40} />
 
-                            </Icon>
+
                         </Text>
                         <Text style={styles.box4}>{props.title}</Text>
                     </View>

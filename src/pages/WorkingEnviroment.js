@@ -58,6 +58,9 @@ const styles = StyleSheet.create({
         fontWeight: '100',
         marginHorizontal: 20,
         paddingBottom: 10
+    },
+    bottomBtn: {
+        paddingTop: 5
     }
 
 

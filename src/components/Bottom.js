@@ -9,8 +9,9 @@ import {
     StyleSheet
 } from 'react-native';
 
-import Logo from '../components/Logo'
+import Roundbtn from '../components/Roundbtn'
 import BottomBtn from './BottomBtn';
+
 
 
 
@@ -28,7 +29,7 @@ const Bottom = (props) => {
 
             <BottomBtn title="Back" onPress={onLeftPress}
             />
-            <Logo />
+            <Roundbtn title="Confirm" />
             <BottomBtn title="Next" onPress={onRightPress} />
         </View>
     )

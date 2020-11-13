@@ -13,6 +13,7 @@ import {
 } from 'react-native'
 
 import HomeScreen from './HomeScreen';
+import Home from './Home';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
@@ -56,7 +57,7 @@ const SignIn = ({ navigation }) => {
                         colors={['#ff1744', '#ff1744']}
                         style={styles.signIn}
                     >
-                        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                             <Text style={styles.sign} >SignIn</Text>
                         </TouchableOpacity>
 

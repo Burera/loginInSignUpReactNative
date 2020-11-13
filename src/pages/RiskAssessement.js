@@ -25,7 +25,10 @@ const ScreenA = (props) => {
     return (
         <View style={styles.container}>
             <View>
+                {/* Apptext component should receive a prop named heading for headings */}
                 <Text style={styles.header}>Risk assessment – </Text>
+                {/* Apptext component should receive a prop named small for small texts and color for colors */}
+
                 <Text style={styles.shortText}>
                     the overall process of hazard identification
                 </Text>
@@ -51,7 +54,7 @@ const ScreenA = (props) => {
                    </Text>
 
             </ScrollView>
-
+            {/* this should be a reusable component which would recieve checkbox props,  and a label prop for text */}
             <View
                 style={{
                     flexDirection: 'row',
@@ -65,6 +68,7 @@ const ScreenA = (props) => {
                     checked={yes}
                     checkedColor="#ff1744"
                     uncheckedColor="#bcbcbc"
+
                 />
                 <Text
                     style={{
@@ -84,8 +88,11 @@ const ScreenA = (props) => {
 
 
 
+
+
             <Bottom onLeftPress={() => navigation.goBack()}
                 onRightPress={() => navigation.navigate('WorkingEnviroment')} />
+
 
 
         </View>
@@ -127,6 +134,7 @@ const styles = StyleSheet.create({
         color: '#bcbcbc',
         fontWeight: '100',
         marginHorizontal: 20
-    }
+    },
+
 });
 export default ScreenA;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Text,
     View,
@@ -9,23 +9,70 @@ import {
     ScrollView,
 } from 'react-native';
 import Bottom from '../components/Bottom';
-import WorkingEnviroment from './WorkingEnviroment'
+
+import { ListItem, Icon } from 'react-native-elements'
+// import AntDesign from 'react-native-vector-icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign'
+
+const list = [
+    {
+        id: 1,
+
+        title: 'Appointments',
+        icon: 'av-timer'
+
+    },
+    {
+        id: 2,
+        title: 'Working Enviroment',
+        icon: 'flight-takeoff'
+    },
+    {
+        id: 3,
+        title: 'Well Being',
+        icon: 'av-timer'
+    }
+
+]
+
 
 
 const DigitalSkills = (props) => {
+    const [check, setCheck] = useState(false);
+    const Presses = () => {
+        const changee = !check;
+        setCheck(changee);
+    };
     const { navigation } = props;
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.header}>Risk assessment – </Text>
+                <Text style={styles.header}>DigitalSkills – </Text>
                 <Text style={styles.shortText}>
                     the overall process of hazard identification
                 </Text>
             </View>
-            <View><Text style={{
-                justifyContent: 'center', alignSelf:
-                    'center', alignContent: 'center'
-            }}>All Data Display here</Text></View>
+
+            <View>
+                {
+                    list.map((item) => (
+                        <ListItem key={item.id} bottomDivider containerStyle={styles.listoStyl}>
+                            <Icon name={item.icon} color="#ff1744" />
+                            <ListItem.Content>
+                                <ListItem.Title>{item.title}</ListItem.Title>
+                            </ListItem.Content>
+                            <ListItem.CheckBox
+                                key={item.id}
+                                onPress={Presses}
+                                checkedIcon="dot-circle-o"
+                                uncheckedIcon="circle-o"
+                                checked={check}
+                                checkedColor="#ff1744"
+                                uncheckedColor="#bcbcbc" />
+                        </ListItem>
+                    ))
+                }
+            </View>
 
 
             <View
@@ -44,20 +91,6 @@ const styles = StyleSheet.create({
         marginVertical: 0,
         paddingVertical: 0,
     },
-    backgroundVideo: {
-        flex: 1,
-        marginTop: 30,
-        borderRadius: 20,
-    },
-    scrollView: {
-        marginTop: 20,
-        marginHorizontal: 20,
-    },
-    text: {
-        fontSize: 18,
-        color: 'grey',
-        lineHeight: 30,
-    },
     header: {
         fontSize: 28,
         fontWeight: 'bold',
@@ -65,16 +98,23 @@ const styles = StyleSheet.create({
         marginTop: 30,
         justifyContent: 'center',
         marginHorizontal: 20,
+        paddingTop: 35
     },
     shortText: {
         color: '#bcbcbc',
         fontWeight: '100',
         marginHorizontal: 20,
+        paddingBottom: 30
     },
     bottmbtn: {
         justifyContent: 'flex-end',
         flex: 1
     },
+    listoStyl: {
+        paddingVertical: 30,
+        fontWeight: 'bold',
+        marginHorizontal: 10
+    }
 
 });
 export default DigitalSkills;

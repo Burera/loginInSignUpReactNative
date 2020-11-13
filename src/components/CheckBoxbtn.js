@@ -5,7 +5,7 @@ import { Text, View, Image, Button, StyleSheet } from 'react-native';
 
 import { CheckBox, Card } from 'react-native-elements';
 
-const CheckBoxbtn = () => {
+const CheckBoxbtn = (props) => {
     const [yes, setYes] = useState(false);
     const [no, setNo] = useState(false);
     const [option, setOption] = useState('');
@@ -29,14 +29,15 @@ const CheckBoxbtn = () => {
 
                 }}>
                 <CheckBox
-                    onPress={YesPresses}
+                    title={props.title}
+                    onPress={props.onPress}
                     checkedIcon="dot-circle-o"
                     uncheckedIcon="circle-o"
                     checked={yes}
                     checkedColor="#ff1744"
                     uncheckedColor="#bcbcbc"
                 />
-                <Text
+                {/* <Text
                     style={{
 
                         flex: 1,
@@ -48,9 +49,9 @@ const CheckBoxbtn = () => {
 
                     }}>
                     Yes
-        </Text>
+        </Text> */}
             </View>
-            <View style={{ flexDirection: 'row' }}>
+            {/* <View style={{ flexDirection: 'row' }}>
                 <CheckBox
 
                     onPress={NoPresses}
@@ -71,7 +72,7 @@ const CheckBoxbtn = () => {
                     }}>
                     No
         </Text>
-            </View>
+            </View> */}
         </View>
     );
 };

@@ -15,6 +15,9 @@ import Video from 'react-native-video';
 
 import BottomBtn from '../components/BottomBtn';
 import ScroolText from '../components/ScroolText';
+import Logo from '../components/Logo'
+import Roundbtn from '../components/Roundbtn'
+import Bottom from '../components/Bottom';
 
 const WellBeing = (props) => {
     const { navigation } = props;
@@ -26,28 +29,53 @@ const WellBeing = (props) => {
                     the overall process of hazard identification
         </Text>
             </View>
-
+            {/* make a reusable component */}
             <View
                 style={styles.imgStyl}>
                 <Video
                     source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
                     // Can be a URL or a local file.
                     // Callback when video cannot be loaded
+
                     style={styles.backgroundVideo}
                     resizeMode="cover"
                     // resizeMode="contain"
                     controls={true}
-                // progressUpdateInterval={15}
+                    progressUpdateInterval={15}
                 />
             </View>
+            {/* do not make component for it */}
             <ScroolText />
+            <ScrollAbleContainer>
+                <AppText>
+                    Determine if existing control measures are adequate or if more should
+                    be done. Create awareness of hazards and risk. Determine if existing
+                    control measures are adequate or if more should be done. Create
+                    awareness of hazards and risk. Determine if existing control measures
+                    are adequate or if more should be done. Create awareness of hazards
+                    and risk. Determine if existing control measures are adequate or if
+                    more should be done. Determine if existing control measures are
+                    adequate or if more should be done. Create awareness of hazards and
+                    risk. Determine if existing control measures are adequate or if more
+                    should be done. Create awareness of hazards and risk. Determine if
+                    existing control measures are adequate or if more should be done.
+                    Create awareness of hazards and risk. Determine if existing control
+                    measures are adequate or if more should be done.
+                </AppText>
+            </ScrollAbleContainer>
             <View style={styles.bottmbtn}>
-                <BottomBtn title="Back" onPress={() => navigation.goBack()} />
-                <BottomBtn title="Confirm" />
+                {/* <BottomBtn title="Back" onPress={() => navigation.goBack()} />
+
+
+                <Roundbtn title="Confirm"></Roundbtn>
+
                 <BottomBtn
                     title="Next"
                     onPress={() => navigation.navigate('DigitalSkills')}
-                />
+                /> */}
+                <Bottom onLeftPress={() => navigation.goBack()}
+                    onRightPress={() => navigation.navigate('DigitalSkills'
+                    )} />
             </View>
         </View>
     );
@@ -62,8 +90,7 @@ const styles = StyleSheet.create({
     },
     backgroundVideo: {
         flex: 1,
-        marginTop: 30,
-        borderRadius: 20,
+
     },
     scrollView: {
         marginTop: 20,
@@ -88,15 +115,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
     },
     bottmbtn: {
-        flexDirection: 'row',
-
-        justifyContent: 'space-around',
+        paddingTop: 5
     },
     imgStyl: {
         flex: 1,
         alignSelf: 'center',
-        width: '90%',
-        marginVertical: 10
+        width: '90%', backgroundColor: 'silver',
+        marginVertical: 10,
+        borderWidth: 0.5, borderRadius: 20, overflow: 'hidden'
     }
 });
 export default WellBeing;
