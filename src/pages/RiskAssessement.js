@@ -91,7 +91,8 @@ const ScreenA = (props) => {
 
 
             <Bottom onLeftPress={() => navigation.goBack()}
-                onRightPress={() => navigation.navigate('WorkingEnviroment')} />
+                onRightPress={() => navigation.navigate('WorkingEnviroment')}
+            />
 
 
 

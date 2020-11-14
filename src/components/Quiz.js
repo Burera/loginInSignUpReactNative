@@ -1,165 +1,155 @@
 import { CardItem } from 'native-base';
-import React, { useState } from 'react'
-import {
-    Text,
-    View,
-    Image,
-    Button,
-    StyleSheet
-} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Image, Button, StyleSheet } from 'react-native';
 
 import { ListItem, CheckBox, Card } from 'react-native-elements';
 import CheckBoxbtn from './CheckBoxbtn';
 
-
-
 const Quiz = () => {
-
-    const list = [
+    const questions = [
         {
             id: 1,
-            question: `What is the capital of Nigeria?`,
+            questionText: 'What is the capital of France?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
+                { answerText: 'yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
             ],
-
         },
         {
-
             id: 2,
-            question: `What is the capital of India?`,
+            questionText: 'Who is CEO of Tesla?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
         {
             id: 3,
-            question: `What is the capital of Australia?`,
+            questionText: 'The iPhone was created by which company?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
         {
             id: 4,
-            question: `What is the capital of Turkey?`,
+            questionText: 'How many Harry Potter books are there?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
         {
             id: 5,
-            question: `What is the capital of Syria?`,
+            questionText: 'What is the capital of France?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
+                { answerText: 'yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
             ],
-
         },
         {
             id: 6,
-            question: `What is the capital of Australia?`,
+            questionText: 'Who is CEO of Tesla?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
         {
             id: 7,
-            question: `What is the capital of Turkey?`,
+            questionText: 'The iPhone was created by which company?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
         {
             id: 8,
-            question: `What is the capital of Syria?`,
+            questionText: 'How many Harry Potter books are there?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
-        ,
         {
             id: 9,
-            question: `What is the capital of Syria?`,
+            questionText: 'How many Harry Potter books are there?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
-        ,
         {
             id: 10,
-            question: `What is the capital of Syria?`,
+            questionText: 'How many Harry Potter books are there?',
             answerOptions: [
-                { answerText: 'Yes', isCorrect: true },
                 { answerText: 'No', isCorrect: false },
-
+                { answerText: 'yes', isCorrect: true },
             ],
-
         },
-    ]
+    ];
+
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [showScore, setShowScore] = useState(setCurrentQuestion);
+    const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
+    const [checked, setChecked] = useState(false)
+
     const handleAnswerOptionClick = (isCorrect) => {
+        const colorcheck = !checked
+        setChecked(colorcheck)
         if (isCorrect) {
             setScore(score + 1);
-            console.log(score)
         }
-        console.log("score")
-        // if (List.length ) {
-        //     setCurrentQuestion(nextQuestion);
-        // } else {
-        //     setShowScore(true);
-        // }
 
-
+        const nextQuestion = questions.length;
+        if (currentQuestion < nextQuestion) {
+            setCurrentQuestion(nextQuestion);
+        } else {
+            setShowScore(true);
+        }
     };
-
     return (
         <View>
-            {
-                list.map((l) => (
-                    <ListItem key={l.id} containerStyle={{ paddingTop: 0 }}>
+            {showScore ? (
+                <Text>
+                    You scored {score} out of {questions.length}
+                </Text>
+            ) : (
+                    <View >
+                        {questions.map((l) => (
+                            <ListItem key={l.id} containerStyle={{ paddingTop: 0 }}>
+                                <ListItem.Content>
+                                    <ListItem.Title>
+                                        {' '}
+                                        {l.id} : {l.questionText}
+                                    </ListItem.Title>
+                                    {questions[0].answerOptions.map((answerOption) => (
+                                        <View >
 
-                        <ListItem.Content>
-                            <ListItem.Title> {l.id} : {l.question}</ListItem.Title>
-                            {l.answerOptions.map((h) => (
-                                // <Text>{h.answerText}</Text>
-                                <CheckBoxbtn title={h.answerText} />
-                            ))}
+                                            <CheckBox
+                                                containerStyle={{ backgroundColor: '#fff', flexDirection: 'row' }}
+                                                center
+                                                title={answerOption.answerText}
+                                                checkedIcon='dot-circle-o'
+                                                uncheckedIcon='circle-o'
+                                                checked={checked}
+                                                checkedColor="#ff1744"
+                                                uncheckedColor="#ff1744"
+                                                onPress={() =>
+                                                    handleAnswerOptionClick(answerOption.isCorrect)
+                                                }
+                                            />
 
-
-
-                        </ListItem.Content>
-                    </ListItem>
-                ))
+                                        </View>
+                                    ))}
+                                </ListItem.Content>
+                            </ListItem>
+                        ))}
+                    </View>
+                )
             }
+        </View >
+    );
+};
 
-        </View>
-    )
-}
-
-export default Quiz
+export default Quiz;

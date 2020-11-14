@@ -11,6 +11,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Bottom from '../components/Bottom';
 
 import Quiz from '../components/Quiz';
+import NewQuiz from './NewQuiz';
 
 const ScreenB = (props) => {
     const { navigation } = props;
@@ -33,6 +34,7 @@ const ScreenB = (props) => {
                     )}></Bottom>
 
             </View>
+
         </View>
     )
 }

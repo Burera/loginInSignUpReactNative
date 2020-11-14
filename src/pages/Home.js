@@ -13,6 +13,7 @@ import DashboardList from '../components/DashboardList';
 const list = [
     {
 
+        key: 1,
         name: 'Risk Assessment',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -20,6 +21,7 @@ const list = [
         address: 'RiskAssessement',
     },
     {
+        key: 2,
         name: 'Working Enviroment',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -28,6 +30,7 @@ const list = [
     },
     {
 
+        key: 3,
         name: 'Well Being',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -36,6 +39,7 @@ const list = [
     },
     {
 
+        key: 4,
         name: 'Digital Skills',
         avatar_url:
             'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
@@ -76,7 +80,7 @@ const Home = (props) => {
                         renderItem={({ item }, index) => (
                             <View style={styles.box}>
                                 <DashboardList
-                                    key={index}
+                                    key={item.key}
                                     onPress={() => navigation.navigate(item.address)}
                                     source={{ uri: item.avatar_url }}
                                     name={item.name}

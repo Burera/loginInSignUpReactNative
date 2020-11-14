@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Content } from 'native-base';
 import {
     Text,
@@ -22,17 +22,15 @@ import VideoCOmp from '../components/VideoCOmp'
 import AppText from '../components/AppText';
 
 const WellBeing = (props) => {
-    const { navigation } = props;
+    const { navigation } = props; 4
+    const [onLoad, setOnload] = useState(false)
+
+
     return (
         <View style={styles.container}>
-            {/* <View>
-                <Text style={styles.header}>Well Being – </Text>
-                <Text style={styles.shortText}>
-                    the overall process of hazard identification
-        </Text>
-            </View> */}
+
             <AppText />
-            {/* make a reusable component */}
+
             <View
                 style={styles.imgStyl}>
                 <Video
@@ -46,11 +44,10 @@ const WellBeing = (props) => {
                     // resizeMode="contain"
                     controls={true}
                     progressUpdateInterval={15}
-                    onLoadStart={() => {
-                        console.log('onLoadStart', new Date());
-                    }}
+
                     onLoad={() => {
-                        console.log('onLoad', new Date());
+                        const start = !onLoad
+                        setOnload(start)
                     }}
                 />
 
