@@ -8,21 +8,17 @@ import {
     StyleSheet
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import AppText from '../components/AppText';
 import Bottom from '../components/Bottom';
 
 import Quiz from '../components/Quiz';
-import NewQuiz from './NewQuiz';
+
 
 const ScreenB = (props) => {
     const { navigation } = props;
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.header}>Working Enviroment– </Text>
-                <Text style={styles.shortText}>
-                    the overall process of hazard identification
-                </Text>
-            </View>
+            <AppText title="Working Enviroment" shortText="the overall process of hazard identification" />
             <ScrollView >
 
                 <Quiz></Quiz>

@@ -7,12 +7,12 @@ import {
     StyleSheet,
     SafeAreaView,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
 import Bottom from '../components/Bottom';
-import WorkingEnviroment from './WorkingEnviroment'
-import { CheckBox } from 'react-native-elements'
-
+import WorkingEnviroment from './WorkingEnviroment';
+import { CheckBox } from 'react-native-elements';
+import AppText from '../components/AppText';
 
 const ScreenA = (props) => {
     const { navigation } = props;
@@ -24,42 +24,29 @@ const ScreenA = (props) => {
     };
     return (
         <View style={styles.container}>
-            <View>
-                {/* Apptext component should receive a prop named heading for headings */}
-                <Text style={styles.header}>Risk assessment – </Text>
-                {/* Apptext component should receive a prop named small for small texts and color for colors */}
-
-                <Text style={styles.shortText}>
-                    the overall process of hazard identification
-                </Text>
-            </View>
-
+            <AppText title="Risk Assessement" shortText="the overall process of hazard identification" />
 
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <Text style={styles.text}>
-                    Determine if existing control measures are adequate or if more
+                    Determine if existing control measures are adequate or if more should
+                    be done. Create awareness of hazards and risk. Determine if existing
+                    control measures are adequate or if more should be done. Create
+                    awareness of hazards and risk. Determine if existing control measures
+                    are adequate or if more should be done. Create awareness of hazards
+                    and risk. Determine if existing control measures are adequate or if
+                    more should be done. Determine if existing control measures are
+                    adequate or if more should be done. Create awareness of hazards and
+                    risk. Determine if existing control measures are adequate or if more
                     should be done. Create awareness of hazards and risk. Determine if
                     existing control measures are adequate or if more should be done.
                     Create awareness of hazards and risk. Determine if existing control
-                    measures are adequate or if more should be done. Create awareness of
-                    hazards and risk. Determine if existing control measures are
-                    adequate or if more should be done.
-                    Determine if existing control measures are adequate or if more
-                    should be done. Create awareness of hazards and risk. Determine if
-                    existing control measures are adequate or if more should be done.
-                    Create awareness of hazards and risk. Determine if existing control
-                    measures are adequate or if more should be done. Create awareness of
-                    hazards and risk. Determine if existing control measures are
-                    adequate or if more should be done.
-                   </Text>
-
+                    measures are adequate or if more should be done.
+        </Text>
             </ScrollView>
             {/* this should be a reusable component which would recieve checkbox props,  and a label prop for text */}
             <View
                 style={{
                     flexDirection: 'row',
-
-
                 }}>
                 <CheckBox
                     onPress={YesPresses}
@@ -68,34 +55,17 @@ const ScreenA = (props) => {
                     checked={yes}
                     checkedColor="#ff1744"
                     uncheckedColor="#bcbcbc"
-
                 />
                 <Text
-                    style={{
-
-                        flex: 1,
-                        alignSelf: 'center',
-                        position: 'absolute',
-                        left: 45,
-                        color: 'grey'
-
-
-                    }}>
+                    style={styles.confirmationText}>
                     I agree terms and Condition
         </Text>
             </View>
 
-
-
-
-
-
-            <Bottom onLeftPress={() => navigation.goBack()}
+            <Bottom
+                onLeftPress={() => navigation.goBack()}
                 onRightPress={() => navigation.navigate('WorkingEnviroment')}
             />
-
-
-
         </View>
     );
 };
@@ -103,25 +73,17 @@ const ScreenA = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "column",
-        // marginVertical: 0,
-        // paddingVertical: 0
-
+        flexDirection: 'column',
 
     },
     scrollView: {
-
         marginTop: 20,
         marginHorizontal: 20,
-
-
-
     },
     text: {
         fontSize: 18,
         color: 'grey',
         lineHeight: 30,
-
     },
     header: {
         fontSize: 28,
@@ -129,13 +91,20 @@ const styles = StyleSheet.create({
         color: '#364f6b',
         marginTop: 30,
         justifyContent: 'center',
-        marginHorizontal: 20
+        marginHorizontal: 20,
     },
     shortText: {
         color: '#bcbcbc',
         fontWeight: '100',
-        marginHorizontal: 20
+        marginHorizontal: 20,
     },
+    confirmationText: {
+        flex: 1,
+        alignSelf: 'center',
+        position: 'absolute',
+        left: 45,
+        color: 'grey',
 
+    }
 });
 export default ScreenA;

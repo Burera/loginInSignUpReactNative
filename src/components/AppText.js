@@ -2,17 +2,18 @@ import React from 'react';
 
 import { Text, View, StyleSheet } from 'react-native';
 
-const AppText = () => {
+const AppText = (props) => {
   return (
-    <View>
-      <Text style={styles.header}>Well Being – </Text>
-      <Text style={styles.shortText}>
-        the overall process of hazard identification
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>{props.title}</Text>
+      <Text style={styles.shortText}>{props.shortText}</Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 5,
+  },
   header: {
     fontSize: 28,
     fontWeight: 'bold',

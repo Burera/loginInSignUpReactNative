@@ -13,6 +13,7 @@ import Bottom from '../components/Bottom';
 import { ListItem, Icon } from 'react-native-elements'
 // import AntDesign from 'react-native-vector-icons/AntDesign';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import AppText from '../components/AppText'
 
 const list = [
     {
@@ -46,13 +47,7 @@ const DigitalSkills = (props) => {
     const { navigation } = props;
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.header}>DigitalSkills – </Text>
-                <Text style={styles.shortText}>
-                    the overall process of hazard identification
-                </Text>
-            </View>
-
+            <AppText title="Digital Skills" shortText="the overall process of hazard identification" />
             <View>
                 {
                     list.map((item) => (

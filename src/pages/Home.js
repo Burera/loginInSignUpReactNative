@@ -12,7 +12,6 @@ import DashboardList from '../components/DashboardList';
 
 const list = [
     {
-
         key: 1,
         name: 'Risk Assessment',
         avatar_url:
@@ -29,7 +28,6 @@ const list = [
         address: 'WorkingEnviroment',
     },
     {
-
         key: 3,
         name: 'Well Being',
         avatar_url:
@@ -38,7 +36,6 @@ const list = [
         address: 'WellBeing',
     },
     {
-
         key: 4,
         name: 'Digital Skills',
         avatar_url:
@@ -66,7 +63,6 @@ const Home = (props) => {
                         </View>
                     </View>
 
-
                     <View style={styles.HomeThree}>
                         <Text style={styles.HomeFour}>Dashboard</Text>
                         <Text style={styles.HomeFive}>Survey About Pandemic </Text>
@@ -75,7 +71,6 @@ const Home = (props) => {
 
                 <View style={styles.footer}>
                     <FlatList
-
                         data={list}
                         renderItem={({ item }, index) => (
                             <View style={styles.box}>
@@ -116,7 +111,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
         paddingHorizontal: 20,
-        paddingVertical: 10
+        paddingVertical: 10,
     },
     HomeOne: {
         flexDirection: 'row',

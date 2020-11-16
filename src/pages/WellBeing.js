@@ -15,24 +15,22 @@ import Video from 'react-native-video';
 
 import BottomBtn from '../components/BottomBtn';
 import ScroolText from '../components/ScroolText';
-import Logo from '../components/Logo'
-import Roundbtn from '../components/Roundbtn'
+import Logo from '../components/Logo';
+import Roundbtn from '../components/Roundbtn';
 import Bottom from '../components/Bottom';
-import VideoCOmp from '../components/VideoCOmp'
+import VideoCOmp from '../components/VideoCOmp';
 import AppText from '../components/AppText';
 
 const WellBeing = (props) => {
-    const { navigation } = props; 4
-    const [onLoad, setOnload] = useState(false)
+    const { navigation } = props;
 
+    const [onLoad, setOnload] = useState(false);
 
     return (
         <View style={styles.container}>
+            <AppText title="Well Being" shortText="the overall process of hazard identification" />
 
-            <AppText />
-
-            <View
-                style={styles.imgStyl}>
+            <View style={styles.imgStyl}>
                 <Video
                     source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
                     // Can be a URL or a local file.
@@ -44,22 +42,20 @@ const WellBeing = (props) => {
                     // resizeMode="contain"
                     controls={true}
                     progressUpdateInterval={15}
-
                     onLoad={() => {
-                        const start = !onLoad
-                        setOnload(start)
+                        const start = !onLoad;
+                        setOnload(start);
                     }}
                 />
-
             </View>
             {/* do not make component for it */}
             <ScroolText />
 
             <View style={styles.bottmbtn}>
-
-                <Bottom onLeftPress={() => navigation.goBack()}
-                    onRightPress={() => navigation.navigate('DigitalSkills'
-                    )} />
+                <Bottom
+                    onLeftPress={() => navigation.goBack()}
+                    onRightPress={() => navigation.navigate('DigitalSkills')}
+                />
             </View>
         </View>
     );
@@ -74,7 +70,6 @@ const styles = StyleSheet.create({
     },
     backgroundVideo: {
         flex: 1,
-
     },
     scrollView: {
         marginTop: 20,
@@ -85,28 +80,19 @@ const styles = StyleSheet.create({
         color: 'grey',
         lineHeight: 30,
     },
-    // header: {
-    //     fontSize: 28,
-    //     fontWeight: 'bold',
-    //     color: '#364f6b',
-    //     marginTop: 30,
-    //     justifyContent: 'center',
-    //     marginHorizontal: 20,
-    // },
-    // shortText: {
-    //     color: '#bcbcbc',
-    //     fontWeight: '100',
-    //     marginHorizontal: 20,
-    // },
+
     bottmbtn: {
-        paddingTop: 5
+        paddingTop: 5,
     },
     imgStyl: {
         flex: 1,
         alignSelf: 'center',
-        width: '90%', backgroundColor: 'silver',
+        width: '90%',
+        backgroundColor: 'silver',
         marginVertical: 10,
-        borderWidth: 0.5, borderRadius: 20, overflow: 'hidden'
-    }
+        borderWidth: 0.5,
+        borderRadius: 20,
+        overflow: 'hidden',
+    },
 });
 export default WellBeing;
