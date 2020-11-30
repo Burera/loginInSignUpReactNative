@@ -27,6 +27,7 @@
     "react-native-gesture-handler": "^1.8.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.3",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-multiple-choice": "0.0.8",
     "react-native-reanimated": "^1.13.1",
     "react-native-responsive-dimensions": "^3.1.1",
     "react-native-safe-area-context": "^3.1.8",
