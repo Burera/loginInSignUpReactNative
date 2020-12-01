@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Text, View, Image, Button, StyleSheet } from 'react-native';
 
 import { ListItem, CheckBox, Card } from 'react-native-elements';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const Quiz = () => {
@@ -10,85 +11,58 @@ const Quiz = () => {
         {
             id: 1,
             questionText: 'What is the capital of France?',
-            answerOptions: [
-                { answerText: 'yes', isCorrect: true, checked: false },
-                { answerText: 'No', isCorrect: false, checked: false },
-            ],
+
         },
         {
             id: 2,
             questionText: 'Who is CEO of Tesla?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 3,
             questionText: 'The iPhone was created by which company?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 4,
             questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 5,
             questionText: 'What is the capital of France?',
-            answerOptions: [
-                { answerText: 'yes', isCorrect: true, checked: false },
-                { answerText: 'No', isCorrect: false, checked: false },
-            ],
+
         },
         {
             id: 6,
             questionText: 'Who is CEO of Tesla?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 7,
             questionText: 'The iPhone was created by which company?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 8,
             questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 9,
             questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
         {
             id: 10,
             questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: 'No', isCorrect: false, checked: false },
-                { answerText: 'yes', isCorrect: true, checked: false },
-            ],
+
         },
     ];
-
+    const answerOptions = [
+        { answerText: 'yes', isCorrect: true, checked: false },
+        { answerText: 'No', isCorrect: false, checked: false },
+    ]
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -131,37 +105,71 @@ const Quiz = () => {
                                         {' '}
                                         {l.id} : {l.questionText}
                                     </ListItem.Title>
-                                    {questions[0].answerOptions.map((answerOption) => (
-                                        <ListItem.Subtitle
-                                        >
 
-                                            <Text
-                                            ><View style={{ flexDirection: 'row' }}>
+                                    <FlatList data={answerOptions}
+                                        horizontal
 
-                                                    <CheckBox
+                                        renderItem={({ item }) => {
+                                            return (
+                                                <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingVertical: 10 }}>
+
+                                                    {/* <CheckBox
                                                         containerStyle={{
                                                             backgroundColor: '#fff',
 
                                                         }}
                                                         center
-                                                        title={answerOption.answerText}
+                                                        // title={item.answerText}
                                                         checkedIcon='dot-circle-o'
                                                         uncheckedIcon='circle-o'
-                                                        checked={answerOption.checked}
+                                                        checked={item.checked}
                                                         checkedColor="#ff1744"
                                                         uncheckedColor="#ff1744"
                                                         onPress
                                                         ={() =>
                                                             handleAnswerOptionClick
-                                                                (answerOption.isCorrect)
+                                                                (item.isCorrect)
                                                         }
-                                                    />
+                                                    /> */}
 
-                                                </View></Text>
+                                                    <TouchableOpacity
+                                                        onPress
+                                                        ={() =>
+                                                            handleAnswerOptionClick
+                                                                (item.isCorrect)
+                                                        }
+                                                    >
 
-                                        </ListItem.Subtitle>
 
-                                    ))}
+                                                        <Text style={{
+
+                                                            flexDirection: 'row',
+                                                            color: '#fff',
+                                                            textAlign: 'center',
+
+                                                            borderRadius: 50,
+                                                            borderWidth: 2,
+                                                            borderColor: '#ff1744',
+                                                            width: 20,
+                                                            height: 20
+
+                                                        }} />
+                                                    </TouchableOpacity>
+
+                                                    <Text style={{ fontWeight: '700', marginLeft: 7 }} >{item.answerText}</Text>
+
+                                                </View>
+
+
+                                            )
+                                        }}
+                                    />
+
+
+
+
+
+
                                 </ListItem.Content>
                             </ListItem>
                         ))}
