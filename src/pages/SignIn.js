@@ -61,7 +61,7 @@ const SignIn = ({ navigation }) => {
 
                         <View style={styles.button}>
                             <LinearGradient colors={['#ff1744', '#ff1744']} style={styles.signIn}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
                                     <Text style={styles.sign}>SignIn</Text>
                                 </TouchableOpacity>
                             </LinearGradient>
@@ -72,7 +72,7 @@ const SignIn = ({ navigation }) => {
                                     style={styles.forget_signUp}
                                     onPress={() => navigation.navigate('SignUp')}>
                                     SignUp
-                     </Text>
+                                </Text>
                             </TouchableOpacity>
                         </View>
                     </Animatable.View>

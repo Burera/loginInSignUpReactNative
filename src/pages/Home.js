@@ -60,6 +60,16 @@ const Home = (props) => {
                                 color="#fff"
                                 onPress={() => navigation.goBack()}
                             />
+
+                        </View>
+                        <View style={styles.HomeTwo}>
+                            <AntDesign
+                                name="arrowleft"
+                                size={24}
+                                color="#fff"
+                                onPress={() => navigation.goBack()}
+                            />
+
                         </View>
                     </View>
 
