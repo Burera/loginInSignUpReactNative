@@ -7,7 +7,7 @@ const Logo = () => {
         <View style={styles.cont}>
 
             <Image
-                source={require("../images/cloud4.png")}
+                source={require("../images/survey.png")}
 
                 style={styles.imageStyling}
             />

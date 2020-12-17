@@ -11,7 +11,6 @@ import {
     Alert,
 } from 'react-native';
 
-
 import Home from './Home';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
@@ -20,6 +19,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import PasswordInput from '../components/PasswordInput';
 import EmailInput from '../components/EmailInput';
 import Logo from '../components/Logo';
+import { useTheme } from '@react-navigation/native';
+
 import {
     responsiveHeight,
     responsiveWidth,
@@ -27,78 +28,118 @@ import {
 } from 'react-native-responsive-dimensions';
 
 const SignIn = ({ navigation }) => {
-    return (
-        <KeyboardAwareScrollView style={styles.container}>
-            <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+    const { colors } = useTheme();
 
-            <View style={styles.header}>
+
+    return (
+        // <KeyboardAwareScrollView style={styles.container}>
+        <View style={styles.container}>
+
+            <KeyboardAwareScrollView style={styles.header}>
                 <View style={styles.imgoo}>
                     <Logo />
                 </View>
                 <Text style={[styles.text_header, { fontFamily: 'Montserrat-SemiBold' }]}>
                     SignIn
-        </Text>
+                   </Text>
                 <Text style={styles.text_header_two}>
                     Hi there! Nice to see you again.
-        </Text>
-            </View>
-            <View style={styles.footer}>
-                <EmailInput />
+                 </Text>
+            </KeyboardAwareScrollView>
+            <KeyboardAwareScrollView
+                style={[styles.footer, {
+                    backgroundColor: colors.background
+                }]}
+            // animation="fadeInUpBig"
+            >
 
-                <PasswordInput pass="Password" />
+                <View style={{ marginTop: 10, }}>
+                    <Animatable.View animation="fadeInUpBig">
+                        <EmailInput />
 
-                <View style={styles.button}>
-                    <LinearGradient colors={['#ff1744', '#ff1744']} style={styles.signIn}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                            <Text style={styles.sign}>SignIn</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                    <Text style={styles.or}>or</Text>
-                    <TouchableOpacity style={styles.forget}>
-                        <Text style={styles.forget_password}>Forgot password?</Text>
-                        <Text
-                            style={styles.forget_signUp}
-                            onPress={() => navigation.navigate('SignUp')}>
-                            SignUp
-            </Text>
-                    </TouchableOpacity>
+                        <PasswordInput pass="Password" />
+
+                        <View style={styles.button}>
+                            <LinearGradient colors={['#ff1744', '#ff1744']} style={styles.signIn}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                                    <Text style={styles.sign}>SignIn</Text>
+                                </TouchableOpacity>
+                            </LinearGradient>
+                            <Text style={styles.or}>or</Text>
+                            <TouchableOpacity style={styles.forget}>
+                                <Text style={styles.forget_password}>Forgot password?</Text>
+                                <Text
+                                    style={styles.forget_signUp}
+                                    onPress={() => navigation.navigate('SignUp')}>
+                                    SignUp
+                     </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </Animatable.View>
                 </View>
-            </View>
-        </KeyboardAwareScrollView>
+            </ KeyboardAwareScrollView>
+        </View >
+        // </KeyboardAwareScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: '#fff',
 
-        paddingVertical: 10,
-    },
+    //     paddingVertical: 10,
+    // },
     imgoo: {
         paddingVertical: 25,
     },
+    // header: {
+    //     flex: 1,
+    //     justifyContent: 'flex-end',
+    //     paddingHorizontal: 20,
+
+    //     paddingVertical: 10,
+    //     paddingBottom: 20,
+    //     backgroundColor: 'blue',
+    // },
+    // footer: {
+    //     flex: 2,
+
+    //     // height: responsiveHeight(80), // 50% of window height
+    //     backgroundColor: 'pink',
+    //     paddingHorizontal: 20,
+    //     paddingVertical: 20,
+    // },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff'
+    },
     header: {
         flex: 1,
-        justifyContent: 'flex-end',
+        // justifyContent: 'flex-end',
         paddingHorizontal: 20,
 
-        paddingVertical: 10,
-        paddingBottom: 20,
+        marginTop: 30
+
+
     },
     footer: {
-        flex: 1,
-
-        // height: responsiveHeight(80), // 50% of window height
-
+        flex: 2,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
         paddingHorizontal: 20,
-        paddingVertical: 20,
+        paddingVertical: 70,
+
+
+
     },
 
     text_header: {
         color: 'black',
         fontWeight: 'bold',
         fontSize: 30,
+        justifyContent: 'center'
     },
     text_header_two: {
         color: '#bcbcbc',
@@ -112,7 +153,7 @@ const styles = StyleSheet.create({
     text_footer_two: {
         color: '#ff1744',
         fontSize: 18,
-        marginTop: 40,
+        // marginTop: 40,
     },
 
     button: {
@@ -144,6 +185,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: 4,
+
     },
     forget_password: {
         color: '#bcbcbc',

@@ -26,6 +26,7 @@ import RiskAssessement from './src/pages/RiskAssessement';
 import WorkingEnviroment from './src/pages/WorkingEnviroment';
 import WellBeing from './src/pages/WellBeing';
 import DigitalSkills from './src/pages/DigitalSkills';
+import Welcom from './src/pages/Welcom'
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -39,15 +40,13 @@ const App = () => {
             cardStyle: { backgroundColor: 'white' },
             headerShown: false,
           }}>
+          <Stack.Screen name="Welcome" component={Welcom} />
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
 
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="RiskAssessement" component={RiskAssessement} />
-          <Stack.Screen
-            name="WorkingEnviroment"
-            component={WorkingEnviroment}
-          />
+          <Stack.Screen name="WorkingEnviroment" component={WorkingEnviroment} />
           <Stack.Screen name="WellBeing" component={WellBeing} />
           <Stack.Screen name="DigitalSkills" component={DigitalSkills} />
         </Stack.Navigator>
