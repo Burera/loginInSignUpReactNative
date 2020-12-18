@@ -58,7 +58,7 @@ const SignIn = ({ navigation }) => {
                         <PasswordInput pass="Password" />
 
                         <View style={styles.button}>
-                            <LinearGradient colors={['#ff1744', '#ff1744']} style={styles.signIn}>
+                            <LinearGradient colors={['#E31837', '#C41E3A']} style={styles.signIn}>
                                 <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
                                     <Text style={styles.sign}>SignIn</Text>
                                 </TouchableOpacity>
@@ -66,11 +66,14 @@ const SignIn = ({ navigation }) => {
                             <Text style={styles.or}>or</Text>
                             <TouchableOpacity style={styles.forget}>
                                 <Text style={styles.forget_password}>Forgot password?</Text>
+
+
                                 <Text
                                     style={styles.forget_signUp}
                                     onPress={() => navigation.navigate('SignUp')}>
                                     SignUp
-                                </Text>
+                                    </Text>
+
                             </TouchableOpacity>
                         </View>
                     </Animatable.View>
@@ -193,7 +196,7 @@ const styles = StyleSheet.create({
     forget_signUp: {
         paddingHorizontal: 10,
         fontSize: 17,
-        color: '#ff1744',
+        color: '#C41E3A',
     },
 });
 

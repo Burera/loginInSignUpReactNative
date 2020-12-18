@@ -74,7 +74,7 @@ const EmailInput = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
     text_footer: {
-        color: '#ff1744',
+        color: '#C41E3A',
         fontSize: 18
     },
     action: {

@@ -12,6 +12,7 @@ import {
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo'
 
 
 const PasswordInput = (props) => {
@@ -61,13 +62,13 @@ const PasswordInput = (props) => {
                     onPress={updateSecureTextEntry}
                 >
                     {data.secureTextEntry ?
-                        <Feather
-                            name="eye-off"
+                        <Entypo
+                            name="eye-with-line"
                             color="grey"
                             size={20}
                         />
                         :
-                        <Feather
+                        <Entypo
                             name="eye"
                             color="#ff1744"
                             size={20}
@@ -85,7 +86,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     text_footer_two: {
-        color: '#ff1744',
+
+        color: '#C41E3A',
         fontSize: 18,
         marginTop: 20
     },

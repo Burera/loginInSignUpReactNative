@@ -51,7 +51,7 @@ const Home = (props) => {
           autoplay
           // horizontal={false}
           height={200}
-          activeDotColor="#FF6347">
+          activeDotColor="#C41E3A">
           <View style={styles.slide}>
             <Image
               source={require('../images/1.jpeg')}
@@ -104,7 +104,7 @@ const Home = (props) => {
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <AntDesign name="enviroment" size={35} color="#FF6347" />
+            <AntDesign name="enviroment" size={35} color="#C41E3A" />
           </View>
           <Text style={styles.categoryBtnTxt}>Working Home</Text>
         </TouchableOpacity>
@@ -113,16 +113,16 @@ const Home = (props) => {
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <FontAwesome name="handshake-o" size={35} color="#FF6347" />
+            <FontAwesome name="handshake-o" size={35} color="#C41E3A" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Keeping In Touch</Text>
+          <Text style={styles.categoryBtnTxt}>Keeping Touch</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryBtn}>
 
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <FontAwesome5 name="hand-holding-heart" size={35} color="#FF6347" />
+            <FontAwesome5 name="hand-holding-heart" size={35} color="#C41E3A" />
           </View>
           <Text style={styles.categoryBtnTxt}>WellBeing</Text>
         </TouchableOpacity>
@@ -135,7 +135,7 @@ const Home = (props) => {
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <Foundation name="social-skillshare" size={35} color="#FF6347" />
+            <Foundation name="social-skillshare" size={35} color="#C41E3A" />
           </View>
           <Text style={styles.categoryBtnTxt}>Soft Skills</Text>
         </TouchableOpacity>
@@ -144,7 +144,7 @@ const Home = (props) => {
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <FontAwesome name="stack-overflow" size={35} color="#FF6347" />
+            <FontAwesome name="stack-overflow" size={35} color="#C41E3A" />
           </View>
           <Text style={styles.categoryBtnTxt}>Technology</Text>
         </TouchableOpacity>
@@ -153,7 +153,7 @@ const Home = (props) => {
           <View style={[styles.categoryIcon, {
             backgroundColor: colors.background
           }]}>
-            <FontAwesome name="paint-brush" size={35} color="#FF6347" />
+            <FontAwesome name="paint-brush" size={35} color="#C41E3A" />
           </View>
           <Text style={styles.categoryBtnTxt}>Contact Us</Text>
         </TouchableOpacity>
@@ -161,7 +161,8 @@ const Home = (props) => {
 
       </View>
       <Animatable.View animation="fadeInUpBig" style={[{
-        backgroundColor: '#bcbcbc', flex: 1, borderTopLeftRadius: 30, borderTopRightRadius: 30,
+        backgroundColor: '#bcbcbc', flex: 1,
+        borderTopLeftRadius: 30, borderTopRightRadius: 30,
         paddingVertical: 30,
         marginTop: 20
       }, {
@@ -169,8 +170,8 @@ const Home = (props) => {
       }]}>
 
         <View style={{ marginHorizontal: 30 }}>
-          <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Wellcome SomeOne</Text>
-          <Text style={{ paddingVertical: 8 }}>Click An Action button below to commence your assessnent & learning</Text>
+          <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#C41E3A' }}>Wellcome SomeOne</Text>
+          <Text style={{ paddingVertical: 8, color: '#05375a' }}>Click An Action button below to commence your assessnent & learning</Text>
         </View>
       </Animatable.View>
 
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
   categoryBtnTxt: {
     alignSelf: 'center',
     marginTop: 5,
-    color: '#de4f35',
+    color: '#C41E3A',
   },
 });
 
