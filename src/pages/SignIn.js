@@ -4,11 +4,9 @@ import {
     View,
     Text,
     TouchableOpacity,
-    TextInput,
-    Platform,
+
     StyleSheet,
-    StatusBar,
-    Alert,
+
 } from 'react-native';
 
 import Home from './Home';

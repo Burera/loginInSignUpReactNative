@@ -9,14 +9,21 @@ import {
   Image
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Foundation from 'react-native-vector-icons/Foundation';
+
 import DashboardList from '../components/DashboardList';
 import Swiper from 'react-native-swiper';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import { TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useTheme } from '@react-navigation/native';
 const Home = (props) => {
+
+
+  const { colors } = useTheme();
   const { navigation } = props;
   return (
     <View style={styles.container}>
@@ -94,61 +101,76 @@ const Home = (props) => {
       <View style={styles.categoryContainer}>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            <Fontisto name="hotel" size={35} color="#FF6347" />
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <AntDesign name="enviroment" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>Working Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            <Fontisto name="hotel" size={35} color="#FF6347" />
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <FontAwesome name="handshake-o" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>Keeping In Touch</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            <Fontisto name="hotel" size={35} color="#FF6347" />
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <FontAwesome5 name="hand-holding-heart" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>WellBeing</Text>
         </TouchableOpacity>
+
 
       </View>
       <View style={styles.categoryContainer}>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            {/* <FontAwesome name="universal-access" size={35} color="#FF6347" /> */}
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <Foundation name="social-skillshare" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>Soft Skills</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            <Fontisto name="hotel" size={35} color="#FF6347" />
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <FontAwesome name="stack-overflow" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>Technology</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryBtn}>
 
-          <View style={styles.categoryIcon}>
-            <Fontisto name="hotel" size={35} color="#FF6347" />
+          <View style={[styles.categoryIcon, {
+            backgroundColor: colors.background
+          }]}>
+            <FontAwesome name="paint-brush" size={35} color="#FF6347" />
           </View>
-          <Text style={styles.categoryBtnTxt}>Hello</Text>
+          <Text style={styles.categoryBtnTxt}>Contact Us</Text>
         </TouchableOpacity>
+
 
       </View>
-
-      <Animatable.View animation="fadeInUpBig" style={{
+      <Animatable.View animation="fadeInUpBig" style={[{
         backgroundColor: '#bcbcbc', flex: 1, borderTopLeftRadius: 30, borderTopRightRadius: 30,
         paddingVertical: 30,
         marginTop: 20
-      }}>
+      }, {
+        backgroundColor: colors.background
+      }]}>
 
-        <View style={{ marginHorizontal: 20 }}>
+        <View style={{ marginHorizontal: 30 }}>
           <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Wellcome SomeOne</Text>
-          <Text style={{ paddingVertical: 10 }}>Click An Action button below to commence your assessnent & learning</Text>
+          <Text style={{ paddingVertical: 8 }}>Click An Action button below to commence your assessnent & learning</Text>
         </View>
       </Animatable.View>
 
@@ -161,7 +183,7 @@ const Home = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'pink',
+    backgroundColor: '#fff',
   },
   sliderContainer: {
     height: 200,
@@ -240,6 +262,7 @@ const styles = StyleSheet.create({
     width: '30%',
     marginHorizontal: 0,
     alignSelf: 'center',
+
   },
   categoryIcon: {
     borderWidth: 0,
@@ -248,7 +271,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 70,
     height: 70,
-    backgroundColor: '#fdeae7' /* '#FF6347' */,
+    backgroundColor: 'yellow' /* '#FF6347' */,
     borderRadius: 50,
   },
   categoryBtnTxt: {
